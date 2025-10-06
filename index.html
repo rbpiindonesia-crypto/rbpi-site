@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rumah Belajar Pengadaan Indonesia — RBPI</title>
+  <meta name="description" content="Rumah Belajar Pengadaan Indonesia - Belajar Bersama Menuju Pengadaan Lebih Baik." />
+  <style>
+    /* ===============================================
+       TEMA & WARNA (ditingkatkan)
+       =============================================== */
+    :root{
+      --primary:#0ea5e9;           /* biru utama */
+      --bg:#0f172a;                /* latar gradien gelap-cerah */
+      --bg2:#0b1220;
+      --card:#0f1a2b;
+      --text:#e5e7eb;
+      --muted:#9aa4b2;
+      --ring:rgba(14,165,233,0.5);
+      --shadow: 0 12px 28px rgba(2,8,23,0.45), 0 8px 10px rgba(2,8,23,0.35);
+      --accent:#22d3ee;
+    }
+    [data-theme="light"]{
+      --bg:#ffffff;
+      --bg2:#f8fafc;
+      --card:#f6f9fc;
+      --text:#0f172a;
+      --muted:#64748b;
+      --ring:rgba(14,165,233,0.35);
+      --shadow: 0 14px 28px rgba(2,8,23,0.08), 0 8px 10px rgba(2,8,23,0.06);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--text)}
+
+    /* Latar pola halus + gradien */
+    body{
+      background:
+        radial-gradient(1200px 500px at -20% -10%, rgba(34,211,238,0.10), transparent 70%),
+        radial-gradient(900px 400px at 110% 0%, rgba(14,165,233,0.12), transparent 70%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+
+    /* ===============================================
+       HEADER
+       =============================================== */
+    header{position:sticky;top:0;background:rgba(15,23,42,0.55);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(100,116,139,0.15);z-index:50}
+    [data-theme="light"] header{background:rgba(255,255,255,0.7)}
+    .nav{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;color:white;font-weight:700;box-shadow:var(--shadow)}
+    .brand h1{font-size:18px;margin:0;line-height:1.1}
+    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+    nav a{padding:8px 10px;border-radius:10px}
+    nav a:hover{background:rgba(255,255,255,0.06)}
+    [data-theme="light"] nav a:hover{background:var(--card)}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(100,116,139,0.25);background:transparent;padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:600;color:var(--text)}
+    .btn.primary{background:var(--primary);color:#fff;border-color:transparent}
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn:focus{outline:3px solid var(--ring)}
+    .chip{font-size:12px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(100,116,139,0.2)}
+    [data-theme="light"] .chip{background:var(--card)}
+
+    /* ===============================================
+       HERO
+       =============================================== */
+    .hero{padding:44px 0 34px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(14,165,233,0.12), rgba(34,211,238,0.10)), var(--card);border:1px solid rgba(100,116,139,0.18);padding:26px;border-radius:18px;box-shadow:var(--shadow)}
+    .hero h2{font-size:32px;margin:4px 0 10px}
+    .lead{color:var(--muted);font-size:16px;margin:0 0 18px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+    .stat{background:rgba(255,255,255,0.04);border:1px dashed rgba(100,116,139,0.25);padding:10px;border-radius:12px;text-align:center}
+    .hero-illus{border-radius:18px;overflow:hidden;border:1px solid rgba(100,116,139,0.18);background:radial-gradient(400px 220px at 20% 20%, rgba(14,165,233,0.25), transparent 60%),linear-gradient(135deg,var(--card),transparent);height:100%}
+    .hero-illus svg{width:100%;height:100%}
+
+    /* ===============================================
+       SECTIONS & KARTU
+       =============================================== */
+    section{padding:28px 0}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid rgba(100,116,139,0.18);padding:16px;border-radius:16px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px}
+    .card p{margin:0 0 10px;color:var(--muted)}
+    .badge{font-size:12px;background:rgba(14,165,233,0.15);color:#67e8f9;padding:4px 8px;border-radius:999px;border:1px solid rgba(14,165,233,0.25)}
+
+    table{width:100%;border-collapse:separate;border-spacing:0 10px}
+    thead th{font-size:13px;color:var(--muted);text-align:left;padding:6px 10px}
+    tbody tr{background:var(--card);border:1px solid rgba(100,116,139,0.18)}
+    tbody td{padding:12px 10px;border-top:1px solid rgba(100,116,139,0.18);border-bottom:1px solid rgba(100,116,139,0.18)}
+    tbody td:first-child{border-left:1px solid rgba(100,116,139,0.18);border-radius:12px 0 0 12px}
+    tbody td:last-child{border-right:1px solid rgba(100,116,139,0.18);border-radius:0 12px 12px 0}
+
+    .list{display:grid;gap:10px}
+    .list .row{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid rgba(100,116,139,0.18);padding:10px 12px;border-radius:12px}
+
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+
+    /* ===============================================
+       ANNOUNCEMENT BAR
+       =============================================== */
+    .announce{display:none;border-bottom:1px solid rgba(100,116,139,0.2)}
+    .announce .announce-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0}
+    .announce .msg{font-weight:600}
+    .announce button{padding:6px 10px;border-radius:10px}
+    .announce.info{background:rgba(14,165,233,0.12);color:#67e8f9}
+    .announce.success{background:rgba(16,185,129,0.12);color:#34d399}
+    .announce.warn{background:rgba(245,158,11,0.12);color:#fbbf24}
+    .announce.alert{background:rgba(239,68,68,0.12);color:#f87171}
+
+    /* ===============================================
+       TESTIMONIALS
+       =============================================== */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:900px){.testimonials{grid-template-columns:1fr}}
+    .testimonial-card{background:var(--card);border:1px solid rgba(100,116,139,0.18);padding:16px;border-radius:16px;box-shadow:var(--shadow)}
+    .testimonial-card header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .testimonial-card img{width:44px;height:44px;border-radius:999px;object-fit:cover;border:1px solid rgba(100,116,139,0.2)}
+    .stars{color:#fbbf24;font-size:14px}
+
+    /* ===============================================
+       GALLERY
+       =============================================== */
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    @media (max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    .gallery-grid figure{margin:0}
+    .gallery-grid img{width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid rgba(100,116,139,0.2);background:var(--card);cursor:pointer}
+    .gallery-grid figcaption{margin-top:6px;font-size:13px;color:var(--muted)}
+
+    /* ===============================================
+       FOOTER
+       =============================================== */
+    footer{border-top:1px solid rgba(100,116,139,0.2);padding:18px 0;color:var(--muted)}
+
+    /* ===============================================
+       ADMIN BAR & PANEL (disembunyikan default)
+       =============================================== */
+    .admin-bar{position:fixed;right:16px;bottom:16px;display:none;gap:8px;z-index:60}
+    .panel{position:fixed;inset:auto 16px 16px auto;width:min(460px,94vw);max-height:80vh;overflow:auto;background:var(--bg);border:1px solid rgba(100,116,139,0.2);border-radius:16px;box-shadow:var(--shadow);display:none}
+    .panel.open{display:block}
+    .panel header{position:sticky;top:0;background:inherit;border-bottom:1px solid rgba(100,116,139,0.2);padding:10px 14px;border-radius:16px 16px 0 0}
+    .panel .content{padding:12px 14px;display:grid;gap:14px}
+    .tabs{display:flex;gap:6px;flex-wrap:wrap}
+    .tabs button{padding:8px 10px;border-radius:10px;border:1px solid rgba(100,116,139,0.25);background:rgba(255,255,255,0.04);cursor:pointer;color:var(--text)}
+    .tabs button.active{background:var(--primary);color:#fff;border-color:transparent}
+    .tabs button[disabled]{opacity:0.5;cursor:not-allowed}
+    .field{display:grid;gap:6px}
+    .field label{font-size:13px;color:var(--muted)}
+    .field input,.field textarea,.field select{padding:10px 12px;border:1px solid rgba(100,116,139,0.3);border-radius:10px;background:transparent;color:var(--text)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .items{display:grid;gap:10px}
+    .item{display:grid;gap:8px;background:var(--card);border:1px solid rgba(100,116,139,0.2);padding:10px;border-radius:12px}
+    .item header{display:flex;justify-content:space-between;align-items:center}
+    .danger{background:#fee2e2;border-color:#fecaca;color:#991b1b}
+    .muted{color:var(--muted)}
+
+    .hide-on-mobile{display:block}
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .hide-on-mobile{display:none}
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <!-- ============================================= -->
+  <!-- HEADER                                        -->
+  <!-- ============================================= -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Navigasi utama">
+      <div class="brand">
+        <div id="logoBox" class="logo" aria-hidden="true">RB</div>
+        <h1 id="siteTitle">Rumah Belajar Pengadaan Indonesia</h1>
+        <span class="chip hide-on-mobile">Sederhana & Mudah Dikelola</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#jadwal">Jadwal</a></li>
+          <li><a href="#artikel">Artikel</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+      <div>
+        <button id="themeBtn" class="btn" title="Tema terang/gelap">🌓 Tema</button>
+        <button id="loginBtn" class="btn" title="Masuk admin" aria-pressed="false">🔐 Login</button>
+        <button id="logoutBtn" class="btn" title="Keluar" style="display:none">🚪 Logout</button>
+        <!-- Tombol admin disembunyikan sampai login -->
+        <button id="adminBtn" class="btn admin-toggle" title="Buka panel admin" style="display:none">⚙️ Admin</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================= -->
+  <!-- ANNOUNCEMENT BAR                              -->
+  <!-- ============================================= -->
+  <div id="announceBar" class="announce info" role="status" aria-live="polite">
+    <div class="container announce-inner">
+      <span id="announceMsg" class="msg"></span>
+      <button id="announceClose" class="btn" title="Sembunyikan pengumuman">Tutup</button>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- MAIN                                          -->
+  <!-- ============================================= -->
+  <main id="beranda" class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="badge">Rumah Belajar Pengadaan Indonesia</div>
+          <h2 id="heroTitle">Belajar Bersama Menuju Pengadaan Lebih Baik</h2>
+          <p id="heroSubtitle" class="lead">Kelas online/offline, materi terstruktur, dan narasumber berpengalaman. Cocok untuk pemula hingga level mahir.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a id="ctaWhatsapp" class="btn primary" href="#" target="_blank" rel="noopener">💬 Tanya via WhatsApp</a>
+            <a href="#program" class="btn">📚 Lihat Program</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><div style="font-weight:800;font-size:22px" id="statAlumni">1.200+</div><div class="muted">Alumni</div></div>
+            <div class="stat"><div style="font-weight:800;font-size:22px" id="statKelas">35+</div><div class="muted">Topik Kelas</div></div>
+            <div class="stat"><div style="font-weight:800;font-size:22px" id="statKepuasan">4.8/5</div><div class="muted">Kepuasan</div></div>
+          </div>
+        </div>
+        <div class="hero-illus" aria-hidden="true">
+          <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#0ea5e9" />
+                <stop offset="100%" stop-color="#22d3ee" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="500" height="280" fill="url(#g1)" opacity="0.12" />
+            <g transform="translate(40,40)">
+              <rect x="0" y="0" width="420" height="200" rx="14" fill="transparent" stroke="rgba(100,116,139,0.4)" />
+              <rect x="14" y="18" width="150" height="18" rx="6" fill="rgba(14,165,233,0.35)" />
+              <rect x="14" y="50" width="380" height="12" rx="5" fill="rgba(100,116,139,0.5)" />
+              <rect x="14" y="70" width="300" height="12" rx="5" fill="rgba(100,116,139,0.35)" />
+              <rect x="14" y="110" width="420" height="1" fill="rgba(100,116,139,0.45)" />
+              <rect x="14" y="130" width="180" height="38" rx="10" fill="#0ea5e9" opacity="0.8" />
+              <rect x="206" y="130" width="110" height="38" rx="10" fill="rgba(14,165,233,0.35)" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="program">
+      <div class="section-title">
+        <h2>Program Pelatihan</h2>
+        <span class="muted">Topik populer dan dasar–lanjutan</span>
+      </div>
+      <div class="filters">
+        <input id="searchProgram" type="text" placeholder="Cari program..." />
+        <select id="filterMode">
+          <option value="">Semua Mode</option>
+          <option>Online</option>
+          <option>Offline</option>
+          <option>Hybrid</option>
+        </select>
+      </div>
+      <div id="programList" class="cards"></div>
+    </section>
+
+    <section id="jadwal">
+      <div class="section-title">
+        <h2>Jadwal Terdekat</h2>
+        <a id="downloadJadwal" class="btn" href="#">⬇️ Unduh CSV</a>
+      </div>
+      <div style="overflow:auto">
+        <table aria-label="Tabel jadwal pelatihan">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Topik</th>
+              <th>Narasumber</th>
+              <th>Mode</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="jadwalBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="artikel">
+      <div class="section-title">
+        <h2>Artikel & Materi</h2>
+        <span class="muted">Admin bisa menulis langsung tanpa tautan eksternal</span>
+      </div>
+      <div id="artikelList" class="list"></div>
+    </section>
+
+    <section id="testimoni">
+      <div class="section-title">
+        <h2>Testimoni Alumni</h2>
+        <span class="muted">Apa kata peserta</span>
+      </div>
+      <div id="testiList" class="testimonials"></div>
+    </section>
+
+    <section id="galeri">
+      <div class="section-title">
+        <h2>Galeri Kegiatan</h2>
+        <span class="muted">Unggah gambar langsung (ukuran dianjurkan 1200×800px)</span>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <section id="faq">
+      <div class="section-title">
+        <h2>FAQ</h2>
+        <span class="muted">Pertanyaan yang sering ditanyakan</span>
+      </div>
+      <div class="cards" style="grid-template-columns:1fr">
+        <div class="card">
+          <details open>
+            <summary><strong>Apakah perlu server atau database?</strong></summary>
+            <p>Tak perlu. Semua data disimpan di browser admin (localStorage). Gunakan Export/Import JSON untuk cadangan dan sinkron antar perangkat.</p>
+          </details>
+          <details>
+            <summary><strong>Bagaimana cara pendaftaran peserta?</strong></summary>
+            <p>Gunakan tombol <em>Daftar via WA</em> di setiap program atau tambahkan tautan pendaftaran di program.</p>
+          </details>
+          <details>
+            <summary><strong>Bagaimana bila konten hilang?</strong></summary>
+            <p>Pastikan tidak menggunakan mode penyamaran. Lakukan Export Data setelah mengubah konten penting.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="section-title">
+        <h2>Kontak</h2>
+        <span class="muted">Kami siap membantu</span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Alamat</h3>
+          <p id="addressText">Indonesia</p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p><a id="emailLink" href="mailto:rbpi.indonesia@gmail.com">rbpi.indonesia@gmail.com</a></p>
+        </div>
+        <div class="card">
+          <h3>WhatsApp</h3>
+          <p><a id="waLink" href="#" target="_blank" rel="noopener">+62 812‑3456‑7890</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+        <div>© <span id="year"></span> <strong id="footerTitle">Rumah Belajar Pengadaan Indonesia</strong>. All rights reserved.</div>
+        <div class="muted">Made simple for admin ✨</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================= -->
+  <!-- ADMIN FLOATING BAR (hanya tampil setelah login) -->
+  <!-- ============================================= -->
+  <div class="admin-bar" id="adminBar">
+    <button id="helpBtn" class="btn" title="Panduan Admin">❓ Panduan</button>
+    <button id="quickEditBtn" class="btn" title="Edit cepat teks">✏️ Edit Cepat</button>
+    <button id="openPanelBtn" class="btn primary" title="Panel Admin">⚙️ Panel</button>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- PANEL ADMIN                                   -->
+  <!-- ============================================= -->
+  <aside id="adminPanel" class="panel" aria-label="Panel Admin">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <strong>Panel Admin</strong>
+      <div id="roleBadge" class="chip">Guest</div>
+      <button id="closePanel" class="btn">Tutup</button>
+    </header>
+    <div class="content">
+      <div class="tabs" role="tablist">
+        <button class="active" data-tab="umum" data-role="master">Umum</button>
+        <button data-tab="pengumuman" data-role="master">Pengumuman</button>
+        <button data-tab="program" data-role="admin">Program</button>
+        <button data-tab="jadwal" data-role="admin">Jadwal</button>
+        <button data-tab="artikel" data-role="admin">Artikel</button>
+        <button data-tab="testimoni" data-role="admin">Testimoni</button>
+        <button data-tab="galeri" data-role="admin">Galeri</button>
+        <button data-tab="tampilan" data-role="master">Tampilan</button>
+        <button data-tab="backup" data-role="master">Backup</button>
+      </div>
+
+      <!-- Tab Umum (MASTER) -->
+      <div class="tab" id="tab-umum">
+        <div class="field"><label>Judul Situs</label><input id="inpTitle" type="text" placeholder="Nama situs" /></div>
+        <div class="field"><label>Tagline/Hero Title</label><input id="inpHeroTitle" type="text" placeholder="Judul hero" /></div>
+        <div class="field"><label>Deskripsi Singkat (hero subtitle)</label><textarea id="inpHeroSubtitle" rows="3" placeholder="Deskripsi di bagian atas"></textarea></div>
+        <div class="grid-2">
+          <div class="field"><label>Nomor WhatsApp (contoh: 6281234567890)</label><input id="inpWA" type="tel" /></div>
+          <div class="field"><label>Email</label><input id="inpEmail" type="email" /></div>
+        </div>
+        <div class="field"><label>Alamat</label><input id="inpAddress" type="text" /></div>
+        <button id="saveUmum" class="btn primary">Simpan</button>
+      </div>
+
+      <!-- Tab Program (ADMIN) -->
+      <div class="tab" id="tab-program" style="display:none">
+        <div class="item">
+          <header><strong>Tambah/Update Program</strong></header>
+          <div class="grid-2">
+            <div class="field"><label>Judul</label><input id="progTitle" type="text"></div>
+            <div class="field"><label>Mode</label>
+              <select id="progMode"><option>Online</option><option>Offline</option><option>Hybrid</option></select>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label>Durasi</label><input id="progDuration" type="text" placeholder="mis. 2 hari"></div>
+            <div class="field"><label>Harga</label><input id="progPrice" type="text" placeholder="mis. Rp750.000"></div>
+          </div>
+          <div class="field"><label>Deskripsi</label><textarea id="progDesc" rows="3"></textarea></div>
+          <div class="field"><label>Link Pendaftaran (opsional)</label><input id="progLink" type="url" placeholder="https://..."></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button id="addProgram" class="btn primary">Simpan Program</button>
+            <button id="resetProgram" class="btn">Reset Form</button>
+          </div>
+        </div>
+        <div class="items" id="programItems"></div>
+      </div>
+
+      <!-- Tab Jadwal (ADMIN) -->
+      <div class="tab" id="tab-jadwal" style="display:none">
+        <div class="item">
+          <header><strong>Tambah Jadwal</strong></header>
+          <div class="grid-2">
+            <div class="field"><label>Tanggal</label><input id="schDate" type="date"></div>
+            <div class="field"><label>Mode</label>
+              <select id="schMode"><option>Online</option><option>Offline</option><option>Hybrid</option></select>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label>Topik</label><input id="schTopic" type="text"></div>
+            <div class="field"><label>Narasumber</label><input id="schTrainer" type="text"></div>
+          </div>
+          <div class="field"><label>Link Pendaftaran (opsional)</label><input id="schLink" type="url" placeholder="https://..."></div>
+          <button id="addSchedule" class="btn primary">Simpan Jadwal</button>
+        </div>
+        <div class="items" id="scheduleItems"></div>
+      </div>
+
+      <!-- Tab Artikel (ADMIN) - TULIS LANGSUNG -->
+      <div class="tab" id="tab-artikel" style="display:none">
+        <div class="item">
+          <header><strong>Tulis Artikel</strong></header>
+          <div class="field"><label>Judul</label><input id="artTitle" type="text"></div>
+          <div class="field"><label>Isi (Markdown/Plain Text)</label><textarea id="artBody" rows="8" placeholder="Tulis artikel di sini. Bisa pakai paragraf, *tebal* (**) dan _miring_ (_) sederhana."></textarea></div>
+          <div class="grid-2">
+            <div class="field"><label>Slug (opsional)</label><input id="artSlug" type="text" placeholder="tanpa spasi, mis. dasar-pbj"></div>
+            <div class="field"><label>Tag (opsional)</label><input id="artTags" type="text" placeholder="mis. pbj,pemula"></div>
+          </div>
+          <button id="addArticle" class="btn primary">Simpan Artikel</button>
+        </div>
+        <div class="items" id="articleItems"></div>
+      </div>
+
+      <!-- Tab Pengumuman (MASTER) -->
+      <div class="tab" id="tab-pengumuman" style="display:none">
+        <div class="field"><label><input id="annEnabled" type="checkbox" checked> Tampilkan pengumuman</label></div>
+        <div class="field"><label>Isi Pengumuman</label><input id="annText" type="text" placeholder="Contoh: Pendaftaran batch September dibuka!"></div>
+        <div class="field"><label>Gaya</label>
+          <select id="annStyle"><option value="info">Info (biru)</option><option value="success">Sukses (hijau)</option><option value="warn">Peringatan (kuning)</option><option value="alert">Mendesak (merah)</option></select>
+        </div>
+        <button id="saveAnn" class="btn primary">Simpan Pengumuman</button>
+      </div>
+
+      <!-- Tab Testimoni (ADMIN) -->
+      <div class="tab" id="tab-testimoni" style="display:none">
+        <div class="item">
+          <header><strong>Tambah Testimoni</strong></header>
+          <div class="grid-2">
+            <div class="field"><label>Nama</label><input id="tesName" type="text"></div>
+            <div class="field"><label>Peran/Instansi</label><input id="tesRole" type="text" placeholder="PPK - Pemda X"></div>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label>Rating</label><select id="tesRating"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select></div>
+            <div class="field"><label>Foto (URL, opsional)</label><input id="tesPhoto" type="url" placeholder="https://..."></div>
+          </div>
+          <div class="field"><label>Pesan</label><textarea id="tesText" rows="3" placeholder="Komentar alumni"></textarea></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="addTesti" class="btn primary">Simpan Testimoni</button></div>
+        </div>
+        <div class="items" id="testiItems"></div>
+      </div>
+
+      <!-- Tab Galeri (ADMIN) - UNGGAH GAMBAR -->
+      <div class="tab" id="tab-galeri" style="display:none">
+        <div class="item">
+          <header><strong>Tambah Foto Galeri</strong></header>
+          <div class="field"><label>Unggah Gambar (disarankan 1200×800px, ≤ 600KB)</label><input id="galFile" type="file" accept="image/*"></div>
+          <div class="field"><label>Keterangan (opsional)</label><input id="galCaption" type="text"></div>
+          <div class="muted" id="imgNeed">Ukuran dibutuhkan: min 1000×600px. Gambar lebih kecil akan ditolak.</div>
+          <button id="addGallery" class="btn primary">Simpan Foto</button>
+        </div>
+        <div class="items" id="galleryItems"></div>
+      </div>
+
+      <!-- Tab Tampilan (MASTER) -->
+      <div class="tab" id="tab-tampilan" style="display:none">
+        <div class="grid-2">
+          <div class="field"><label>Warna Utama</label><input id="inpColor" type="color" value="#0ea5e9"></div>
+          <div class="field"><label>Tema</label><select id="inpTheme"><option value="light">Terang</option><option value="dark">Gelap</option></select></div>
+        </div>
+        <div class="field"><label>Logo (opsional, file kecil &lt; 300KB)</label><input id="inpLogo" type="file" accept="image/*"></div>
+        <button id="saveAppearance" class="btn primary">Simpan Tampilan</button>
+      </div>
+
+      <!-- Tab Backup (MASTER) -->
+      <div class="tab" id="tab-backup" style="display:none">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button id="btnExport" class="btn">⬇️ Export Data (JSON)</button>
+          <label class="btn">⬆️ Import Data<input id="fileImport" type="file" accept="application/json" style="display:none"></label>
+          <button id="btnReset" class="btn danger">♻️ Reset ke Default</button>
+        </div>
+        <p class="muted">Tips: rutin export sebagai cadangan. Import untuk pindah perangkat/hosting.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Modal Pratinjau Gambar -->
+  <aside id="imgModal" class="panel" aria-label="Pratinjau Gambar">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <strong>Pratinjau Gambar</strong>
+      <button id="imgClose" class="btn">Tutup</button>
+    </header>
+    <div class="content">
+      <img id="imgPreview" alt="Pratinjau" style="width:100%;border-radius:12px;border:1px solid rgba(100,116,139,0.2)" />
+    </div>
+  </aside>
+
+  <!-- Modal Artikel Viewer -->
+  <aside id="articleModal" class="panel" aria-label="Baca Artikel">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <strong id="artReadTitle">Artikel</strong>
+      <button id="artClose" class="btn">Tutup</button>
+    </header>
+    <div class="content">
+      <article id="artReadBody" style="line-height:1.6"></article>
+    </div>
+  </aside>
+
+  <!-- Modal Login Admin -->
+  <aside id="loginModal" class="panel" aria-label="Login Admin" role="dialog" aria-modal="true">
+    <header style="display:flex;justify-content:space-between;align-items:center">
+      <strong>Login</strong>
+      <button id="loginClose" class="btn" aria-label="Tutup login">Tutup</button>
+    </header>
+    <div class="content">
+      <div class="field"><label for="loginUser">User</label><input id="loginUser" type="text" autocomplete="username" placeholder="rbpi-admin / rbpi-master"></div>
+      <div class="field"><label for="loginPass">Password</label><input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••"></div>
+      <div style="display:flex;gap:8px"><button id="loginSubmit" class="btn primary">Masuk</button></div>
+      <p class="muted" style="margin-top:4px">Login ini client‑side untuk menyembunyikan/menampilkan panel. Untuk keamanan penuh gunakan layanan Auth server-side.</p>
+    </div>
+  </aside>
+
+  <script>
+    // =================================================
+    // DATA & STATE (kompatibel dengan versi sebelumnya)
+    // =================================================
+    const STORAGE_KEY = 'rbpi_site_v2';
+    const defaultState = {
+      siteTitle: 'Rumah Belajar Pengadaan Indonesia',
+      heroTitle: 'Belajar Bersama Menuju Pengadaan Lebih Baik',
+      heroSubtitle: 'Kelas online/offline, materi terstruktur, dan narasumber berpengalaman. Cocok untuk pemula hingga level mahir.',
+      whatsapp: '6281241230349',
+      email: 'rbpi.indonesia@gmail.com',
+      address: 'Kel. Jati Kec. Kota Ternate Selatan, Kota Ternate, Maluku Utara',
+      primaryColor: '#0ea5e9',
+      theme: 'light',
+      logoDataUrl: '',
+      stats: { alumni: '1.200+', kelas: '35+', rating: '4.8/5' },
+      programs: [
+        { title: 'Dasar Pengadaan Barang/Jasa (PBJ)', desc: 'Pengenalan peraturan dan proses inti PBJ. Cocok untuk pemula.', mode: 'Online', duration: '2 hari', price: 'Rp750.000', link: '#' },
+        { title: 'Perencanaan & Strategi Pengadaan', desc: 'Menyusun RUP, spesifikasi, HPS, dan strategi pemilihan.', mode: 'Offline', duration: '2 hari', price: 'Rp1.250.000', link: '#' },
+        { title: 'e-Procurement & LPSE', desc: 'Praktik penggunaan aplikasi e-procurement dan LPSE.', mode: 'Hybrid', duration: '1 hari', price: 'Rp500.000', link: '#' }
+      ],
+      schedule: [
+        { date: '2025-09-10', topic: 'Perencanaan Pengadaan Efektif', trainer: 'Budi Santosa', mode: 'Online', link: '#' },
+        { date: '2025-09-18', topic: 'Penyusunan HPS & Evaluasi', trainer: 'Sari Wulandari', mode: 'Offline', link: '#' }
+      ],
+      // ARTIKEL BARU: {title, body, slug?, tags?, createdAt}
+      articles: [
+        { title: 'Ringkas: Tahapan Utama PBJ bagi Pemula', body: 'Pengantar ringkas tentang tahapan PBJ untuk pemula.\n\n1. Perencanaan\n2. Persiapan\n3. Pelaksanaan', slug: 'tahapan-pbj', tags: 'pbj,pemula', createdAt: Date.now() },
+        { title: 'Checklist Dokumen Pengadaan', body: 'Daftar dokumen yang wajib disiapkan sebelum proses pengadaan dimulai.', slug: 'checklist-dokumen', tags: 'checklist', createdAt: Date.now() }
+      ],
+      // GALERI BARU: {dataUrl, caption, w, h}
+      gallery: [
+        { dataUrl: '', caption: 'Sesi kelas tatap muka', w: 1200, h: 800 },
+      ],
+      testimonials: [
+        { name: 'Andi Pratama', role: 'PPK - Pemda X', rating: 5, text: 'Materinya terstruktur dan langsung praktik. Sangat membantu.', photo: '' },
+        { name: 'Siti Lestari', role: 'UKPBJ - Kota Y', rating: 5, text: 'Narasumber berpengalaman, studi kasus real. Recommended!', photo: '' }
+      ],
+      announce: { enabled: true, text: 'Pendaftaran batch September dibuka! Early bird s.d. 10 Sep.', style: 'info' }
+    };
+
+    const $ = (sel,root=document) => root.querySelector(sel);
+    const $$ = (sel,root=document) => Array.from(root.querySelectorAll(sel));
+    const clone = (obj) => (typeof structuredClone === 'function' ? structuredClone(obj) : JSON.parse(JSON.stringify(obj)));
+
+    function loadState(){
+      try{
+        // migrasi dari v1 bila ada
+        const legacy = JSON.parse(localStorage.getItem('rbpi_site_v1')||'null');
+        const cur = JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
+        if(cur) return cur;
+        if(legacy){
+          // konversi artikel lama {title,url} -> {title,body}
+          const articles = (legacy.articles||[]).map(a=>({title:a.title, body:a.url?`Buka tautan: ${a.url}`:'', createdAt: Date.now()}));
+          const gallery = (legacy.gallery||[]).map(g=>({dataUrl:g.url, caption:g.caption||'', w:0, h:0}));
+          const st = {...clone(defaultState), ...legacy, articles, gallery};
+          return st;
+        }
+        return clone(defaultState);
+      }catch(e){ return clone(defaultState); }
+    }
+    function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); applyTheme(); renderAll(); }
+
+    let state = loadState();
+
+    // ================================================
+    // RENDER
+    // ================================================
+    function applyTheme(){
+      document.documentElement.style.setProperty('--primary', state.primaryColor);
+      document.body.setAttribute('data-theme', state.theme);
+    }
+    function formatDate(idate){
+      try{ const d=new Date(idate+'T00:00:00'); return d.toLocaleDateString('id-ID',{weekday:'short',day:'2-digit',month:'short',year:'numeric'});}catch(e){return idate}
+    }
+    function renderHeader(){
+      $('#siteTitle').textContent = state.siteTitle;
+      $('#footerTitle').textContent = state.siteTitle;
+      const y = new Date().getFullYear(); $('#year').textContent = y;
+      if(state.logoDataUrl){
+        $('#logoBox').style.background='transparent'; $('#logoBox').style.boxShadow='none';
+        $('#logoBox').innerHTML = `<img src="${state.logoDataUrl}" alt="Logo" style="width:100%;height:100%;object-fit:cover;border-radius:10px">`;
+      } else { $('#logoBox').style.background='linear-gradient(135deg,var(--primary),#22d3ee)'; $('#logoBox').style.boxShadow='var(--shadow)'; $('#logoBox').textContent='RB'; }
+    }
+    function renderHero(){
+      $('#heroTitle').textContent = state.heroTitle; $('#heroSubtitle').textContent = state.heroSubtitle;
+      $('#statAlumni').textContent = state.stats.alumni; $('#statKelas').textContent = state.stats.kelas; $('#statKepuasan').textContent = state.stats.rating;
+      const wa = (state.whatsapp||'').replace(/\D/g,''); const msg = encodeURIComponent('Halo Rumah Belajar Pengadaan, saya ingin bertanya.');
+      $('#ctaWhatsapp').href = `https://wa.me/${wa}?text=${msg}`;
+    }
+    function renderPrograms(){
+      const wrap = $('#programList'); wrap.innerHTML=''; const q = ($('#searchProgram')?.value||'').toLowerCase().trim(); const fmode = $('#filterMode')?.value||'';
+      state.programs.forEach((p,i)=>{
+        const matchQ = !q || p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+        const matchM = !fmode || p.mode === fmode; if(!(matchQ && matchM)) return;
+        const el = document.createElement('div'); el.className='card';
+        el.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:start;gap:8px">
+            <h3>${p.title}</h3>
+            <span class="badge">${p.mode}</span>
+          </div>
+          <p>${p.desc}</p>
+          <div class="muted">Durasi: ${p.duration} • Harga: ${p.price}</div>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            ${p.link?`<a class=\"btn\" href=\"${p.link}\" target=\"_blank\" rel=\"noopener\">Daftar</a>`:''}
+            <button class="btn" data-enroll="${i}">Daftar via WA</button>
+            <button class="btn admin-only" data-edit-prog="${i}">Edit</button>
+            <button class="btn admin-only" data-del-prog="${i}">Hapus</button>
+          </div>`;
+        wrap.appendChild(el);
+      });
+    }
+    function renderSchedule(){
+      const body = $('#jadwalBody'); body.innerHTML='';
+      state.schedule.slice().sort((a,b)=> (a.date>b.date?1:-1)).forEach((s,idx)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${formatDate(s.date)}</td>
+          <td>${s.topic}</td>
+          <td>${s.trainer||'-'}</td>
+          <td>${s.mode}</td>
+          <td>
+            ${s.link?`<a class=\"btn\" href=\"${s.link}\" target=\"_blank\" rel=\"noopener\">Daftar</a>`:''}
+            <button class="btn" data-ics="${idx}">ICS</button>
+            <button class="btn admin-only" data-edit-sch="${idx}">Edit</button>
+            <button class="btn admin-only" data-del-sch="${idx}">Hapus</button>
+          </td>`;
+        body.appendChild(tr);
+      });
+    }
+    // === Artikel baru ===
+    function renderArticles(){
+      const list = $('#artikelList'); list.innerHTML='';
+      state.articles.forEach((a,idx)=>{
+        const row = document.createElement('div'); row.className='row card';
+        row.innerHTML = `<span>${a.title}</span><span class="muted" style="display:flex;gap:6px">
+          <button class="btn" data-read-art="${idx}">Baca ›</button>
+          <button class="btn admin-only" data-edit-art="${idx}">Edit</button>
+          <button class="btn admin-only" data-del-art="${idx}">Hapus</button></span>`;
+        list.appendChild(row);
+      });
+    }
+    function renderTestimonials(){
+      const wrap = $('#testiList'); if(!wrap) return; wrap.innerHTML='';
+      (state.testimonials||[]).forEach((t,i)=>{
+        const d = document.createElement('div'); d.className='testimonial-card';
+        const stars = '★'.repeat(Math.max(0,Math.min(5, Number(t.rating)||0))) + '☆'.repeat(5 - Math.max(0,Math.min(5, Number(t.rating)||0)));
+        d.innerHTML = `
+          <header>${t.photo?`<img src="${t.photo}" alt="${t.name}">`:''}
+            <div><div style="font-weight:700">${t.name||'-'}</div><div class="muted" style="font-size:13px">${t.role||''}</div></div>
+            <div style="margin-left:auto" class="stars">${stars}</div>
+          </header>
+          <p style="margin:0;color:var(--muted)">“${t.text||''}”</p>
+          <div style="margin-top:10px;display:flex;gap:8px" class="admin-only">
+            <button class="btn admin-only" data-edit-testi="${i}">Edit</button>
+            <button class="btn admin-only" data-del-testi="${i}">Hapus</button>
+          </div>`;
+        wrap.appendChild(d);
+      });
+    }
+    function renderGallery(){
+      const grid = $('#galleryGrid'); grid.innerHTML='';
+      (state.gallery||[]).forEach((g,i)=>{
+        const fig = document.createElement('figure');
+        const src = g.dataUrl || g.url || '';
+        fig.innerHTML = `
+          <img src="${src}" alt="${g.caption||'Galeri'}" data-gallery="${i}">
+          <figcaption>${g.caption||''}</figcaption>
+          <div style="margin-top:6px;display:flex;gap:6px" class="admin-only">
+            <button class="btn admin-only" data-edit-gal="${i}">Edit</button>
+            <button class="btn admin-only" data-del-gal="${i}">Hapus</button>
+          </div>`;
+        grid.appendChild(fig);
+      });
+    }
+    function renderBanner(){
+      const bar = $('#announceBar'); const cfg = state.announce||{};
+      if(cfg.enabled && cfg.text){ bar.style.display='block'; bar.className = 'announce ' + (cfg.style||'info'); $('#announceMsg').textContent = cfg.text; }
+      else { bar.style.display='none'; }
+    }
+    function renderContact(){
+      $('#addressText').textContent = state.address || '-';
+      $('#emailLink').textContent = state.email || '-'; $('#emailLink').href = `mailto:${state.email}`;
+      const wa = (state.whatsapp||'').replace(/[^0-9]/g,''); const msg = encodeURIComponent('Halo Rumah Belajar Pengadaan, saya ingin bertanya.');
+      const link = `https://wa.me/${wa}?text=${msg}`; $('#waLink').href = link;
+      $('#waLink').textContent = '+' + wa.replace(/^0/,'62');
+    }
+    function renderAdminLists(){
+      const pi = $('#programItems'); if(pi){ pi.innerHTML=''; state.programs.forEach((p,i)=>{
+        const d=document.createElement('div'); d.className='item';
+        d.innerHTML=`<header><strong>${p.title}</strong><span class="muted">${p.mode} • ${p.duration} • ${p.price}</span></header>
+        <div class="muted" style="margin-bottom:8px">${p.desc}</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn" data-edit-prog="${i}">Edit</button>
+          <button class="btn danger" data-del-prog="${i}">Hapus</button>
+        </div>`; pi.appendChild(d);
+      }); }
+      const si = $('#scheduleItems'); if(si){ si.innerHTML=''; state.schedule.forEach((s,i)=>{
+        const d=document.createElement('div'); d.className='item';
+        d.innerHTML=`<header><strong>${s.topic}</strong><span class="muted">${formatDate(s.date)} • ${s.mode} • ${s.trainer||'-'}</span></header>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-edit-sch="${i}">Edit</button><button class="btn danger" data-del-sch="${i}">Hapus</button></div>`; si.appendChild(d);
+      }); }
+      const ai = $('#articleItems'); if(ai){ ai.innerHTML=''; state.articles.forEach((a,i)=>{
+        const d=document.createElement('div'); d.className='item';
+        const when = new Date(a.createdAt||Date.now()).toLocaleDateString('id-ID');
+        d.innerHTML=`<header><strong>${a.title}</strong><span class="muted">${when} ${a.tags?('• '+a.tags):''}</span></header>
+        <div class="muted" style="margin-bottom:8px">${(a.body||'').slice(0,120)}...</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-edit-art="${i}">Edit</button><button class="btn danger" data-del-art="${i}">Hapus</button></div>`; ai.appendChild(d);
+      }); }
+      const ti = $('#testiItems'); if(ti){ ti.innerHTML=''; (state.testimonials||[]).forEach((t,i)=>{
+        const d=document.createElement('div'); d.className='item'; const stars='★'.repeat(Number(t.rating)||0);
+        d.innerHTML=`<header><strong>${t.name}</strong><span class="muted">${stars} ${t.role||''}</span></header>
+          <div class="muted" style="margin-bottom:8px">${t.text||''}</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-edit-testi="${i}">Edit</button><button class="btn danger" data-del-testi="${i}">Hapus</button></div>`; ti.appendChild(d);
+      }); }
+      const gi = $('#galleryItems'); if(gi){ gi.innerHTML=''; (state.gallery||[]).forEach((g,i)=>{
+        const d=document.createElement('div'); d.className='item';
+        d.innerHTML=`<header><strong>${g.caption||'Gambar'}</strong><span class="muted">${g.w||'?'}×${g.h||'?'} px</span></header>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-edit-gal="${i}">Edit</button><button class="btn danger" data-del-gal="${i}">Hapus</button></div>`; gi.appendChild(d);
+      }); }
+    }
+    function renderAll(){
+      renderHeader(); renderHero(); renderPrograms(); renderSchedule(); renderArticles(); renderTestimonials(); renderGallery(); renderContact(); renderBanner(); renderAdminLists(); toggleAdminUI(role);
+    }
+
+    // =================================================
+    // LOGIN & PERMISSIONS (MASTER vs ADMIN)
+    // =================================================
+    const ADMIN = 'admin'; const MASTER = 'master';
+    let role = null; // null | 'admin' | 'master'
+
+    const USERS = [
+      { u:'rbpi-master', role: MASTER, pwHash:'dd95eb0697689e5cccdc9d9104061fb377cfa05f641db25032ff24198bc1f0b7' },
+      { u:'rbpi-admin',  role: ADMIN,  pwHash:'dd95eb0697689e5cccdc9d9104061fb377cfa05f641db25032ff24198bc1f0b7' }
+    ];
+
+    async function sha256Hex(str){ const enc=new TextEncoder().encode(str); const buf=await crypto.subtle.digest('SHA-256', enc); return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join(''); }
+    function isLoggedIn(){ return sessionStorage.getItem('rbpi_role') || null; }
+    function setLoggedIn(newRole){
+      role = newRole; if(role){ sessionStorage.setItem('rbpi_role', role);} else { sessionStorage.removeItem('rbpi_role'); }
+      // tampilkan/ sembunyikan kontrol admin
+      document.getElementById('logoutBtn').style.display = role ? 'inline-flex':'none';
+      document.getElementById('loginBtn').style.display  = role ? 'none':'inline-flex';
+      document.getElementById('adminBtn').style.display  = role ? 'inline-flex':'none';
+      document.getElementById('adminBar').style.display  = role ? 'flex':'none';
+      // Badge peran
+      const badge = document.getElementById('roleBadge'); badge.textContent = role ? role.toUpperCase() : 'Guest';
+      toggleAdminUI(role);
+    }
+    function toggleAdminUI(currentRole){
+      // tombol admin-only tetap tersembunyi jika belum login
+      $$('.admin-only').forEach(el=> el.style.display = currentRole ? 'inline-flex':'none');
+      // batasi akses tab sesuai peran
+      $$('.tabs button').forEach(btn=>{
+        const need = btn.getAttribute('data-role');
+        const allowed = need === ADMIN ? (currentRole===ADMIN || currentRole===MASTER) : (need === MASTER ? currentRole===MASTER : true);
+        btn.disabled = !allowed;
+      });
+    }
+
+    function openPanel(){ $('#adminPanel').classList.add('open'); }
+    function closePanel(){ $('#adminPanel').classList.remove('open'); }
+
+    // ================================================
+    // EVENT: NAV TABS
+    // ================================================
+    document.addEventListener('click', (e)=>{
+      const t = e.target;
+      if(t.closest('.tabs button')){
+        const btn = t.closest('.tabs button'); if(btn.disabled) return;
+        $$('.tabs button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+        const tab = btn.dataset.tab; $$('.tab').forEach(x=>x.style.display='none'); $('#tab-'+tab).style.display='block';
+      }
+    });
+
+    // ================================================
+    // EVENT: HEADER BUTTONS
+    // ================================================
+    $('#themeBtn').addEventListener('click', ()=>{ state.theme = (state.theme==='light'?'dark':'light'); saveState(); });
+    $('#adminBtn').addEventListener('click', ()=>{ if(!role){ return openLogin(); } openPanel(); });
+    $('#logoutBtn').addEventListener('click', ()=>{ setLoggedIn(null); alert('Anda sudah logout.'); });
+
+    // Floating bar
+    $('#openPanelBtn').addEventListener('click', ()=>{ if(!role) return openLogin(); fillForms(); openPanel(); });
+    $('#closePanel').addEventListener('click', closePanel);
+    $('#helpBtn').addEventListener('click', ()=>{ alert('Tips: Buka Panel, isi data di tab sesuai peran Anda. Master dapat mengubah pengaturan & tampilan. Admin fokus pada konten.');});
+    $('#quickEditBtn').addEventListener('click', ()=>{
+      if(!role) return openLogin();
+      const newTitle = prompt('Judul situs:', state.siteTitle); if(newTitle!==null) state.siteTitle=newTitle;
+      const newHero = prompt('Judul hero:', state.heroTitle); if(newHero!==null) state.heroTitle=newHero;
+      const newSub = prompt('Deskripsi hero:', state.heroSubtitle); if(newSub!==null) state.heroSubtitle=newSub;
+      saveState();
+    });
+
+    // ================================================
+    // LOGIN MODAL
+    // ================================================
+    function openLogin(){ $('#loginModal').classList.add('open'); setTimeout(()=>$('#loginUser').focus(), 10); }
+    function closeLogin(){ $('#loginModal').classList.remove('open'); $('#loginPass').value=''; }
+    $('#loginBtn').addEventListener('click', openLogin);
+    $('#loginClose').addEventListener('click', closeLogin);
+    $('#loginSubmit').addEventListener('click', handleLogin);
+    $('#loginPass').addEventListener('keydown', (e)=>{ if(e.key==='Enter') handleLogin(); });
+
+    async function handleLogin(){
+      const u = $('#loginUser').value.trim(); const p = $('#loginPass').value; if(!u || !p) return alert('User & password wajib diisi');
+      const found = USERS.find(x => x.u.toLowerCase() === u.toLowerCase()); if(!found) return alert('User tidak dikenal');
+      const okPass = (await sha256Hex(p)) === found.pwHash; if(!okPass) return alert('Password salah');
+      setLoggedIn(found.role); closeLogin(); alert('Login berhasil.');
+    }
+
+    // ================================================
+    // FORM HELPERS
+    // ================================================
+    function fillForms(){
+      $('#inpTitle').value = state.siteTitle; $('#inpHeroTitle').value = state.heroTitle; $('#inpHeroSubtitle').value = state.heroSubtitle;
+      $('#inpWA').value = state.whatsapp; $('#inpEmail').value = state.email; $('#inpAddress').value = state.address;
+      $('#inpColor').value = state.primaryColor; $('#inpTheme').value = state.theme;
+      if($('#annEnabled')) $('#annEnabled').checked = !!(state.announce && state.announce.enabled);
+      if($('#annText')) $('#annText').value = (state.announce && state.announce.text) || '';
+      if($('#annStyle')) $('#annStyle').value = (state.announce && state.announce.style) || 'info';
+    }
+
+    // ================================================
+    // SAVE BUTTONS — sesuai PERAN
+    // ================================================
+    // Umum (MASTER)
+    $('#saveUmum').addEventListener('click', ()=>{ if(role!==MASTER) return alert('Hanya MASTER.');
+      state.siteTitle=$('#inpTitle').value.trim()||state.siteTitle;
+      state.heroTitle=$('#inpHeroTitle').value.trim()||state.heroTitle;
+      state.heroSubtitle=$('#inpHeroSubtitle').value.trim()||state.heroSubtitle;
+      state.whatsapp=$('#inpWA').value.trim()||state.whatsapp;
+      state.email=$('#inpEmail').value.trim()||state.email;
+      state.address=$('#inpAddress').value.trim()||state.address;
+      saveState(); alert('Disimpan.');
+    });
+
+    // Program (ADMIN+)
+    $('#addProgram').addEventListener('click', ()=>{ if(!role) return openLogin();
+      const obj={ title:$('#progTitle').value.trim(), desc:$('#progDesc').value.trim(), mode:$('#progMode').value, duration:$('#progDuration').value.trim(), price:$('#progPrice').value.trim(), link:$('#progLink').value.trim() };
+      if(!obj.title) return alert('Judul wajib diisi');
+      const editIdx=$('#addProgram').dataset.editIndex; if(editIdx!==undefined && editIdx!==null){ state.programs[Number(editIdx)]=obj; $('#addProgram').removeAttribute('data-edit-index'); } else { state.programs.push(obj); }
+      $('#progTitle').value=$('#progDesc').value=$('#progDuration').value=$('#progPrice').value=$('#progLink').value=''; saveState();
+    });
+    $('#resetProgram').addEventListener('click', ()=>{ $('#progTitle').value=$('#progDesc').value=$('#progDuration').value=$('#progPrice').value=$('#progLink').value=''; $('#progMode').value='Online'; $('#addProgram').removeAttribute('data-edit-index'); });
+
+    // Jadwal (ADMIN+)
+    $('#addSchedule').addEventListener('click', ()=>{ if(!role) return openLogin();
+      const obj={ date:$('#schDate').value, mode:$('#schMode').value, topic:$('#schTopic').value.trim(), trainer:$('#schTrainer').value.trim(), link:$('#schLink').value.trim() };
+      if(!obj.date||!obj.topic) return alert('Tanggal & topik wajib diisi');
+      const editIdx=$('#addSchedule').dataset.editIndex; if(editIdx!==undefined && editIdx!==null){ state.schedule[Number(editIdx)]=obj; $('#addSchedule').removeAttribute('data-edit-index'); } else { state.schedule.push(obj); }
+      $('#schDate').value=$('#schTopic').value=$('#schTrainer').value=$('#schLink').value=''; $('#schMode').value='Online'; saveState();
+    });
+
+    // Artikel (ADMIN+) — menulis langsung
+    $('#addArticle').addEventListener('click', ()=>{ if(!role) return openLogin();
+      const obj={ title:$('#artTitle').value.trim(), body:$('#artBody').value.trim(), slug:$('#artSlug').value.trim(), tags:$('#artTags').value.trim(), createdAt: Date.now() };
+      if(!obj.title || !obj.body) return alert('Judul & isi wajib diisi');
+      const i=$('#addArticle').dataset.editIndex; if(i!==undefined && i!==null){ state.articles[Number(i)]=obj; $('#addArticle').removeAttribute('data-edit-index'); }
+      else { state.articles.push(obj); }
+      $('#artTitle').value=$('#artBody').value=$('#artSlug').value=$('#artTags').value=''; saveState();
+    });
+
+    // Pengumuman (MASTER)
+    $('#saveAnn').addEventListener('click', ()=>{ if(role!==MASTER) return alert('Hanya MASTER.');
+      state.announce=state.announce||{}; state.announce.enabled=$('#annEnabled').checked; state.announce.text=$('#annText').value.trim(); state.announce.style=$('#annStyle').value; saveState();
+    });
+
+    // Testimoni (ADMIN+)
+    $('#addTesti').addEventListener('click', ()=>{ if(!role) return openLogin();
+      const obj={ name:$('#tesName').value.trim(), role:$('#tesRole').value.trim(), rating:Number($('#tesRating').value)||5, photo:$('#tesPhoto').value.trim(), text:$('#tesText').value.trim() };
+      if(!obj.name || !obj.text) return alert('Nama & pesan wajib diisi');
+      const i=$('#addTesti').dataset.editIndex; if(i!==undefined && i!==null){ state.testimonials[Number(i)]=obj; $('#addTesti').removeAttribute('data-edit-index'); } else { state.testimonials.push(obj); }
+      $('#tesName').value=$('#tesRole').value=$('#tesPhoto').value=$('#tesText').value=''; $('#tesRating').value='5'; saveState();
+    });
+
+    // Galeri (ADMIN+) — unggah file & validasi ukuran
+    const REQUIRED_W = 1000, REQUIRED_H = 600, MAX_SIZE = 600*1024; // 600KB
+    async function readImageFile(file){
+      return new Promise((resolve,reject)=>{
+        const fr=new FileReader(); fr.onload=e=>{ const img=new Image(); img.onload=()=>resolve({dataUrl:e.target.result,w:img.width,h:img.height}); img.onerror=reject; img.src=e.target.result; }; fr.onerror=reject; fr.readAsDataURL(file);
+      });
+    }
+    $('#addGallery').addEventListener('click', async ()=>{ if(!role) return openLogin();
+      const file = $('#galFile').files[0]; const caption = $('#galCaption').value.trim();
+      if(!file) return alert('Pilih gambar terlebih dahulu');
+      if(file.size>MAX_SIZE) return alert('Ukuran file terlalu besar. Maks 600KB.');
+      try{ const info = await readImageFile(file); if(info.w<REQUIRED_W || info.h<REQUIRED_H) return alert(`Ukuran gambar minimal ${REQUIRED_W}×${REQUIRED_H}px. Saat ini: ${info.w}×${info.h}px`);
+        const i=$('#addGallery').dataset.editIndex; const obj={dataUrl:info.dataUrl, caption, w:info.w, h:info.h};
+        if(i!==undefined && i!==null){ state.gallery[Number(i)]=obj; $('#addGallery').removeAttribute('data-edit-index'); } else { state.gallery.push(obj); }
+        $('#galFile').value=''; $('#galCaption').value=''; saveState(); }
+      catch(err){ alert('Gagal membaca gambar.'); }
+    });
+
+    // Tampilan (MASTER)
+    $('#saveAppearance').addEventListener('click', ()=>{ if(role!==MASTER) return alert('Hanya MASTER.');
+      state.primaryColor = $('#inpColor').value || state.primaryColor; state.theme = $('#inpTheme').value || state.theme;
+      const file = $('#inpLogo').files[0]; if(file){ if(file.size > 300*1024){ alert('Ukuran logo terlalu besar. Maks 300KB.'); return; } const reader = new FileReader(); reader.onload = e => { state.logoDataUrl = e.target.result; saveState(); }; reader.readAsDataURL(file); } else { saveState(); }
+    });
+
+    // Backup (MASTER)
+    $('#btnExport').addEventListener('click', ()=>{ if(role!==MASTER) return alert('Hanya MASTER.'); const blob = new Blob([JSON.stringify(state,null,2)], {type:'application/json'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'rbpi-data.json'; a.click(); URL.revokeObjectURL(a.href); });
+    $('#fileImport').addEventListener('change', (e)=>{ if(role!==MASTER){ e.target.value=''; return alert('Hanya MASTER.'); } const file = e.target.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = ev => { try{ const data = JSON.parse(ev.target.result); state = {...clone(defaultState), ...data}; saveState(); alert('Import berhasil.'); }catch(err){ alert('File tidak valid.'); } }; reader.readAsText(file); });
+    $('#btnReset').addEventListener('click', ()=>{ if(role!==MASTER) return alert('Hanya MASTER.'); if(confirm('Kembalikan ke pengaturan awal? Semua data saat ini akan hilang.')){ state = clone(defaultState); saveState(); }});
+
+    // ================================================
+    // DELEGATED ACTIONS (edit/hapus, enroll, ics, banner, baca artikel)
+    // ================================================
+    document.addEventListener('click', (e)=>{
+      const t = e.target;
+      // program
+      if(t.matches('[data-del-prog]')){ if(!role) return openLogin(); const i=Number(t.dataset.delProg); if(confirm('Hapus program ini?')){ state.programs.splice(i,1); saveState(); } }
+      if(t.matches('[data-edit-prog]')){ if(!role) return openLogin(); const i=Number(t.dataset.editProg); const p=state.programs[i]; $('#progTitle').value=p.title; $('#progDesc').value=p.desc; $('#progMode').value=p.mode; $('#progDuration').value=p.duration; $('#progPrice').value=p.price; $('#progLink').value=p.link||''; $('#addProgram').dataset.editIndex=i; openPanel(); $$('.tabs button').forEach(b=>b.classList.remove('active')); $('[data-tab="program"]').classList.add('active'); $$('.tab').forEach(x=>x.style.display='none'); $('#tab-program').style.display='block'; }
+      // jadwal
+      if(t.matches('[data-del-sch]')){ if(!role) return openLogin(); const i=Number(t.dataset.delSch); if(confirm('Hapus jadwal ini?')){ state.schedule.splice(i,1); saveState(); } }
+      if(t.matches('[data-edit-sch]')){ if(!role) return openLogin(); const i=Number(t.dataset.editSch); const s=state.schedule[i]; $('#schDate').value=s.date; $('#schMode').value=s.mode; $('#schTopic').value=s.topic; $('#schTrainer').value=s.trainer||''; $('#schLink').value=s.link||''; $('#addSchedule').dataset.editIndex=i; openPanel(); $$('.tabs button').forEach(b=>b.classList.remove('active')); $('[data-tab="jadwal"]').classList.add('active'); $$('.tab').forEach(x=>x.style.display='none'); $('#tab-jadwal').style.display='block'; }
+      // artikel
+      if(t.matches('[data-del-art]')){ if(!role) return openLogin(); const i=Number(t.dataset.delArt); if(confirm('Hapus artikel ini?')){ state.articles.splice(i,1); saveState(); } }
+      if(t.matches('[data-edit-art]')){ if(!role) return openLogin(); const i=Number(t.dataset.editArt); const a=state.articles[i]; $('#artTitle').value=a.title; $('#artBody').value=a.body||''; $('#artSlug').value=a.slug||''; $('#artTags').value=a.tags||''; $('#addArticle').dataset.editIndex=i; openPanel(); $$('.tabs button').forEach(b=>b.classList.remove('active')); $('[data-tab="artikel"]').classList.add('active'); $$('.tab').forEach(x=>x.style.display='none'); $('#tab-artikel').style.display='block'; }
+      if(t.matches('[data-read-art]')){ const i=Number(t.dataset.readArt); const a=state.articles[i]; if(a){ $('#artReadTitle').textContent=a.title; $('#artReadBody').innerHTML = (a.body||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>'); $('#articleModal').classList.add('open'); } }
+      if(t.id==='artClose'){ $('#articleModal').classList.remove('open'); }
+      // enroll & calendar
+      if(t.matches('[data-enroll]')){ const idx=Number(t.dataset.enroll); const p = state.programs[idx]; const name = prompt('Nama Anda?'); const org = prompt('Instansi/Unit?'); const wa = (state.whatsapp||'').replace(/[^0-9]/g,''); const lines=[ 'Halo RBPI, saya ingin daftar.', `Nama: ${name||'-'}`, `Instansi: ${org||'-'}`, `Program: ${p?.title||'-'}`, `Mode: ${p?.mode||'-'}`, `Durasi: ${p?.duration||'-'}`, `Harga: ${p?.price||'-'}`]; const msg = encodeURIComponent(lines.join('\n')); window.open(`https://wa.me/${wa}?text=${msg}`, '_blank'); }
+      if(t.matches('[data-ics]')){ const i=Number(t.dataset.ics); const s=state.schedule[i]; if(s) downloadICS(s); }
+      // banner close
+      if(t.id==='announceClose'){ state.announce = state.announce || {}; state.announce.enabled = false; saveState(); }
+      // testimoni
+      if(t.matches('[data-del-testi]')){ if(!role) return openLogin(); const i=Number(t.dataset.delTesti); if(confirm('Hapus testimoni ini?')){ state.testimonials.splice(i,1); saveState(); } }
+      if(t.matches('[data-edit-testi]')){ if(!role) return openLogin(); const i=Number(t.dataset.editTesti); const v=state.testimonials[i]; $('#tesName').value=v.name||''; $('#tesRole').value=v.role||''; $('#tesRating').value=String(v.rating||5); $('#tesPhoto').value=v.photo||''; $('#tesText').value=v.text||''; $('#addTesti').dataset.editIndex=i; openPanel(); $$('.tabs button').forEach(b=>b.classList.remove('active')); $('[data-tab="testimoni"]').classList.add('active'); $$('.tab').forEach(x=>x.style.display='none'); $('#tab-testimoni').style.display='block'; }
+      // galeri
+      if(t.matches('[data-del-gal]')){ if(!role) return openLogin(); const i=Number(t.dataset.delGal); if(confirm('Hapus foto ini?')){ state.gallery.splice(i,1); saveState(); } }
+      if(t.matches('[data-edit-gal]')){ if(!role) return openLogin(); const i=Number(t.dataset.editGal); const g=state.gallery[i]; $('#galCaption').value=g.caption||''; $('#addGallery').dataset.editIndex=i; openPanel(); $$('.tabs button').forEach(b=>b.classList.remove('active')); $('[data-tab="galeri"]').classList.add('active'); $$('.tab').forEach(x=>x.style.display='none'); $('#tab-galeri').style.display='block'; }
+      // modal gambar
+      if(t.matches('[data-gallery]')){ const i=Number(t.dataset.gallery); const g=state.gallery[i]; if(g){ $('#imgPreview').src=g.dataUrl || g.url; $('#imgModal').classList.add('open'); }}
+      if(t.id==='imgClose'){ $('#imgModal').classList.remove('open'); }
+    });
+
+    // ================================================
+    // ICS helper
+    // ================================================
+    function downloadICS(s){
+      const dt = new Date(s.date + 'T09:00:00'); const end = new Date(dt.getTime() + 2*60*60*1000);
+      const pad=n=> String(n).padStart(2,'0'); const fmt=d=> d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'T'+pad(d.getHours())+pad(d.getMinutes())+'00';
+      const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//RBPI//ID\nBEGIN:VEVENT\nUID:${Date.now()}@rbpi\nDTSTAMP:${fmt(new Date())}\nDTSTART:${fmt(dt)}\nDTEND:${fmt(end)}\nSUMMARY:${s.topic}\nDESCRIPTION:${(s.trainer||'')+' • '+s.mode}\nEND:VEVENT\nEND:VCALENDAR`;
+      const blob = new Blob([ics], {type:'text/calendar'}); const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`RBPI-${s.date}-${s.topic.replace(/[^a-z0-9]+/gi,'_')}.ics`; a.click(); URL.revokeObjectURL(a.href);
+    }
+
+    // ================================================
+    // INIT
+    // ================================================
+    applyTheme(); renderAll(); fillForms();
+    // set session role jika ada
+    const sessRole = isLoggedIn(); if(sessRole) setLoggedIn(sessRole); else setLoggedIn(null);
+
+    // Download CSV Jadwal
+    $('#downloadJadwal').addEventListener('click', (e)=>{ e.preventDefault(); const rows = [['Tanggal','Topik','Narasumber','Mode','Link'], ...state.schedule.map(s=>[s.date,s.topic,s.trainer||'',s.mode,s.link||''])]; const csv = rows.map(r=> r.map(v=> '"'+(v||'').replaceAll('"','""')+'"').join(',')).join('\n'); const blob = new Blob([csv], {type:'text/csv'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'jadwal-rbpi.csv'; a.click(); URL.revokeObjectURL(a.href); });
+  </script>
+</body>
+</html>
